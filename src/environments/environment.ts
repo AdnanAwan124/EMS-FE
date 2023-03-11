@@ -1,4 +1,4 @@
 export const environment = {
-  apiUrl: `https://localhost:7055/api`,
+  apiUrl: `https://empowerid-ems-api.azurewebsites.net/`,
   production: true,
 };
