@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group col-5">
                     <label>Name</label>
-                    <input type="text" formControlName="name" class="form-control"
+                    <input type="text" formControlName="name" maxLength="100" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
                     <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                         <div *ngIf="f.name.errors.required">Name is required</div>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group col-5">
                     <label>Email</label>
-                    <input type="text" formControlName="email" class="form-control"
+                    <input type="text" formControlName="email" maxLength="100" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                         <div *ngIf="f.email.errors.required">Email is required</div>
