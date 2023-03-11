@@ -1,0 +1,49 @@
+<a class="btn btn-sm btn-primary mb-3" [routerLink]="['add']">Add</a>
+<div class="form-group pull-right">
+    <input class="search form-control mb-3" placeholder="search here" (keyup)="onKeySearch($event) ">
+</div>
+<span class=" counter pull-right"></span>
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>DOB</th>
+                    <th>Department</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees">
+                    <td>{{employee.title}}</td>
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.dob | date:'mediumDate'}}</td>
+                    <td>{{employee.departmentName}}</td>
+                    <td>
+                        <button type="button" class="btn btn-primary me-1"
+                            routerLink="/employee/{{employee.id}}">Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="confirm(employee,mymodal)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Are you sure to delete {{selectedEmployee?.name}}?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="delete()">Confirm</button>
+    </div>
+</ng-template>
